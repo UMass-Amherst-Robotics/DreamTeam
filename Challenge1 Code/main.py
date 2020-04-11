@@ -44,7 +44,7 @@ def setupPins():
 	# LED Status Pin
 	gpio.setup(LED, gpio.OUT)
 
-def __init__(self):
+if __name__ == "__main__":
 	setupPins()
 	print("Hello World")
 
