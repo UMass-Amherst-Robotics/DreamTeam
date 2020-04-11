@@ -36,5 +36,4 @@ def getDistanceFromSensor():
 
 	distance = round(distance, 2)
 
-	gpio.cleanup()
 	return distance
