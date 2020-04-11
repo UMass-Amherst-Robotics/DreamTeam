@@ -35,6 +35,7 @@ def setupPins():
 if __name__ == "__main__":
 	setupPins()
 	print("Hello World")
+	gpio.cleanup()
 
 
 
