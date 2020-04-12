@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	gpio.output(Constants.LED, True)
 
 	while True:
-		
+
 		# x = input()
 		# if x = "w":
 		# 	mc.forward()
