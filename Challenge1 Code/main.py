@@ -10,6 +10,7 @@ import RPi.GPIO as gpio # GPIO Library
 import time
 import Constants 		# Constants Python File
 import UltrasonicSensor
+import MotorControls as mc
 
 # MARK: Functions
 
@@ -31,11 +32,30 @@ def setupPins():
 	# LED Status Pin
 	gpio.setup(Constants.LED, gpio.OUT)
 
+
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
 	setupPins()
-	print("Hello World")
+
+	while True:
+		x = input()
+		if x = "w":
+			mc.forward()
+			time.sleep(0.03)
+		if x = "s":
+			mc.reverse()
+			time.sleep(0.03)
+		if x = "a":
+			mc.rotate_left()
+			time.sleep(0.03)
+		if x = "d":
+			mc.rotate_right()
+			time.sleep(0.03)
+		if x = "q":
+			mc.stop()
+			time.sleep(0.03)
+
 	gpio.cleanup()
 
 
