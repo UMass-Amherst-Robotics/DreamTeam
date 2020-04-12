@@ -48,9 +48,11 @@ if __name__ == "__main__":
 		if distance > 20:
 			print("Moving Forward")
 			mc.forward()
+			time.sleep(0.030)
 		else:
 			print("Rotating Right")
 			mc.rotate_right()
+			time.sleep(0.030)
 
 
 	gpio.cleanup()
