@@ -6,11 +6,11 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 11, 2020
 
-import RPi.GPIO as gpio # GPIO Library
-import time
-import Constants 		# Constants Python File
-import UltrasonicSensor as us
-import MotorControls as mc
+import RPi.GPIO as gpio 		# GPIO Library
+import time						# Time Library
+import Constants 				# Constants Python File
+import UltrasonicSensor as us	# UltrasonicSensor.py
+import MotorControls as mc		# MotorControls.py
 
 # MARK: Functions
 
@@ -42,6 +42,13 @@ if __name__ == "__main__":
 	gpio.output(Constants.LED, True)
 
 	while True:
-		print(us.getDistanceFromSensor())
+		distance = us.getDistanceFromSensor()
+		print(distance)
+
+		if distance > 20:
+			mc.forward()
+		else:
+			mc.rotate_right()
+
 
 	gpio.cleanup()
