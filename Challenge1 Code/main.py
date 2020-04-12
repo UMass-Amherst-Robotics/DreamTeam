@@ -9,6 +9,7 @@
 import RPi.GPIO as gpio # GPIO Library
 import time
 import Constants 		# Constants Python File
+import UltrasonicSensor
 
 # MARK: Functions
 

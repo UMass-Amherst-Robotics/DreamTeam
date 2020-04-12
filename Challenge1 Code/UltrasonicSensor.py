@@ -23,10 +23,10 @@ def getDistanceFromSensor():
 	gpio.output(Constants.TRIG, False)
 
 	# Record the start and end of the pulse to determine the time it took to come back
-	while gpio.input(ECHO) == 0:
+	while gpio.input(Constants.ECHO) == 0:
 		pulse_start = time.time()
 
-	while gpio.input(ECHO) == 1:
+	while gpio.input(Constants.ECHO) == 1:
 		pulse_end = time.time()
 
 	# Mathemetically calculate distance
