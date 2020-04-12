@@ -9,7 +9,7 @@
 import RPi.GPIO as gpio # GPIO Library
 import time
 import Constants 		# Constants Python File
-import UltrasonicSensor
+import UltrasonicSensor as us
 import MotorControls as mc
 
 # MARK: Functions
@@ -42,6 +42,6 @@ if __name__ == "__main__":
 	gpio.output(Constants.LED, True)
 
 	while True:
-		print(getDistanceFromSensor())
+		print(us.getDistanceFromSensor())
 
 	gpio.cleanup()
