@@ -38,11 +38,9 @@ def setupPins():
 if __name__ == "__main__":
 	setupPins()
 
-	# Set the debug LED to ensure code is getting to robot
-	gpio.output(Constants.LED, True)
-
 	while True:
-
+		# Set the debug LED to ensure code is getting to robot
+		gpio.output(Constants.LED, True)
 		# x = input()
 		# if x = "w":
 		# 	mc.forward()
