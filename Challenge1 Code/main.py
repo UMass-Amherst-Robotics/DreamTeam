@@ -38,24 +38,10 @@ def setupPins():
 if __name__ == "__main__":
 	setupPins()
 
+	# Set the debug LED to ensure code is getting to robot
+	gpio.output(Constants.LED, True)
+
 	while True:
-		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, False)
-		# x = input()
-		# if x = "w":
-		# 	mc.forward()
-		# 	time.sleep(0.03)
-		# if x = "s":
-		# 	mc.reverse()
-		# 	time.sleep(0.03)
-		# if x = "a":
-		# 	mc.rotate_left()
-		# 	time.sleep(0.03)
-		# if x = "d":
-		# 	mc.rotate_right()
-		# 	time.sleep(0.03)
-		# if x = "q":
-		# 	mc.stop()
-		# 	time.sleep(0.03)
+		print(getDistanceFromSensor())
 
 	gpio.cleanup()
