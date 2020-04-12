@@ -30,7 +30,7 @@ def stop():
     gpio.output(Constants.IN4, False)
 
 
-def foward():
+def forward():
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, True)
     gpio.output(Constants.IN3, False)
@@ -62,8 +62,3 @@ def rotate_right(time):
     gpio.output(Constants.IN4, False)
 
     time.sleep(time)
-
-
-
-
-
