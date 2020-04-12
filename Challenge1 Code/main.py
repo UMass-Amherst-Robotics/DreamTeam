@@ -51,8 +51,7 @@ if __name__ == "__main__":
 			time.sleep(0.030)
 		else:
 			print("Rotating Right")
-			mc.rotate_right()
-			time.sleep(0.030)
+			mc.rotate_right(0.030)
 
 
 	gpio.cleanup()
