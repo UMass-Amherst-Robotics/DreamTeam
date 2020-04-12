@@ -1,4 +1,4 @@
-# UMass Robotics Team 
+# UMass Robotics Team
 # Challenge01 Main Project File
 #
 # main.py
@@ -38,6 +38,9 @@ def setupPins():
 if __name__ == "__main__":
 	setupPins()
 
+	# Set the debug LED to ensure code is getting to robot
+	gpio.output(Constants.LED, True)
+
 	while True:
 		x = input()
 		if x = "w":
@@ -57,7 +60,3 @@ if __name__ == "__main__":
 			time.sleep(0.03)
 
 	gpio.cleanup()
-
-
-
-
