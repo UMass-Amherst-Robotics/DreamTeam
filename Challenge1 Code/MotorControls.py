@@ -56,8 +56,8 @@ def rotate_left(time):
 
 
 def rotate_right(time):
-    gpio.output(Constants.IN1, False)
-    gpio.output(Constants.IN2, True)
+    gpio.output(Constants.IN1, True)
+    gpio.output(Constants.IN2, False)
     gpio.output(Constants.IN3, True)
     gpio.output(Constants.IN4, False)
 

@@ -45,7 +45,7 @@ if __name__ == "__main__":
 		distance = us.getDistanceFromSensor()
 		print(distance)
 
-		if distance > 20:
+		if distance > 40:
 			print("Moving Forward")
 			mc.forward()
 			time.sleep(0.030)
