@@ -39,15 +39,17 @@ if __name__ == "__main__":
 	setupPins()
 
 	# Set the debug LED to ensure code is getting to robot
-	gpio.output(Constants.LED, True)
+	gpio.output(Constants.LED, False)
 
 	while True:
 		distance = us.getDistanceFromSensor()
 		print(distance)
 
 		if distance > 20:
+			print("Moving Forward")
 			mc.forward()
 		else:
+			print("Rotating Right")
 			mc.rotate_right()
 
 
