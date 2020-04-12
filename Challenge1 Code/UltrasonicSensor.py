@@ -10,7 +10,7 @@ import RPi.GPIO as gpio
 import time
 import Constants
 
-# Description: gets data from the Ultrasonic Sensor and returns an int
+# Description: gets data from the Ultrasonic Sensor and returns an int; in cm
 def getDistanceFromSensor():
 
 	# Set the TRIG to false in order to settle sensor
