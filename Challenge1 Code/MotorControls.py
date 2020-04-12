@@ -33,8 +33,8 @@ def stop():
 def forward():
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, True)
-    gpio.output(Constants.IN3, False)
-    gpio.output(Constants.IN4, True)
+    gpio.output(Constants.IN3, True)
+    gpio.output(Constants.IN4, False)
 
 
 def reverse():
