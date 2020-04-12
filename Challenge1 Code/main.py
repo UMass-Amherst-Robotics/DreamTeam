@@ -40,7 +40,7 @@ if __name__ == "__main__":
 
 	while True:
 		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, True)
+		gpio.output(Constants.LED, False)
 		# x = input()
 		# if x = "w":
 		# 	mc.forward()
