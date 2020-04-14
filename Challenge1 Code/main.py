@@ -1,4 +1,4 @@
-# UMass Robotics Team 
+# UMass Robotics Team
 # Challenge01 Main Project File
 #
 # main.py
@@ -6,11 +6,11 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 11, 2020
 
-import RPi.GPIO as gpio # GPIO Library
-import time
-import Constants 		# Constants Python File
-import UltrasonicSensor
-import MotorControls as mc
+import RPi.GPIO as gpio 		# GPIO Library
+import time						# Time Library
+import Constants 				# Constants Python File
+import UltrasonicSensor as us	# UltrasonicSensor.py
+import MotorControls as mc		# MotorControls.py
 
 # MARK: Functions
 
@@ -36,28 +36,24 @@ def setupPins():
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
-	setupPins()
-
 	while True:
-		x = input()
-		if x = "w":
+		setupPins()
+
+		# Set the debug LED to ensure code is getting to robot
+		gpio.output(Constants.LED, True)
+
+		distance = us.getDistanceFromSensor()
+		print(distance)
+
+		if distance > 40:
+			print("Moving Forward")
 			mc.forward()
-			time.sleep(0.03)
-		if x = "s":
-			mc.reverse()
-			time.sleep(0.03)
-		if x = "a":
-			mc.rotate_left()
-			time.sleep(0.03)
-		if x = "d":
-			mc.rotate_right()
-			time.sleep(0.03)
-		if x = "q":
-			mc.stop()
-			time.sleep(0.03)
+			time.sleep(0.030)
+			gpio.cleanup()
+		else:
+			print("Rotating Right")
+			mc.rotate_right(0.030)
+			gpio.cleanup()
+
 
 	gpio.cleanup()
-
-
-
-

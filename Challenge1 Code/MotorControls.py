@@ -30,40 +30,35 @@ def stop():
     gpio.output(Constants.IN4, False)
 
 
-def foward():
+def forward():
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, True)
-    gpio.output(Constants.IN3, False)
-    gpio.output(Constants.IN4, True)
+    gpio.output(Constants.IN3, True)
+    gpio.output(Constants.IN4, False)
 
 
 def reverse():
     gpio.output(Constants.IN1, True)
     gpio.output(Constants.IN2, False)
-    gpio.output(Constants.IN3, True)
-    gpio.output(Constants.IN4, False)
+    gpio.output(Constants.IN3, False)
+    gpio.output(Constants.IN4, True)
 
 # function rotate_left/right(time) --> void
 # must have some parameter to let car know how long to rotate for
 # will have to sample timings to understand math behind it.
-def rotate_left(time):
-    gpio.output(Constants.IN1, True)
-    gpio.output(Constants.IN2, False)
+def rotate_left(tp):
+    gpio.output(Constants.IN1, False)
+    gpio.output(Constants.IN2, True)
     gpio.output(Constants.IN3, False)
     gpio.output(Constants.IN4, True)
 
-    time.sleep(time)
+    time.sleep(tp)
 
 
-def rotate_right(time):
-    gpio.output(Constants.IN1, False)
-    gpio.output(Constants.IN2, True)
+def rotate_right(tp):
+    gpio.output(Constants.IN1, True)
+    gpio.output(Constants.IN2, False)
     gpio.output(Constants.IN3, True)
     gpio.output(Constants.IN4, False)
 
-    time.sleep(time)
-
-
-
-
-
+    time.sleep(tp)

@@ -1,4 +1,4 @@
-# UMass Robotics Team 
+# UMass Robotics Team
 # Challenge01 Main Project File
 #
 # UltrasonicSensor.py
@@ -11,6 +11,7 @@ import time
 import Constants
 
 # Description: gets data from the Ultrasonic Sensor and returns an int; in cm
+# fuc
 def getDistanceFromSensor():
 
 	# Set the TRIG to false in order to settle sensor
@@ -35,5 +36,6 @@ def getDistanceFromSensor():
 	distance = pulse_duration * 17150
 
 	distance = round(distance, 2)
+	print(distance)
 
 	return distance
