@@ -36,6 +36,7 @@ def setupPins():
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
+	x = 0
 	while True:
 		setupPins()
 
@@ -45,6 +46,10 @@ if __name__ == "__main__":
 		distance = us.getDistanceFromSensor()
 		print(distance)
 
+		x += 1
+		if (x==100):
+			break
+			
 		if distance > 40:
 			print("Moving Forward")
 			mc.forward(0.0001)
