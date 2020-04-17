@@ -22,7 +22,6 @@ False-True --> forward
 True-False --> reverse
 """
 
-def convertDutyCycle(dc):
 
 def stop(tf):
     gpio.output(Constants.IN1, False)
