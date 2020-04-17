@@ -40,6 +40,8 @@ def forward(tf):
 
     time.sleep(tf)
 
+    stop(0.00001)
+
 
 
 
@@ -61,6 +63,9 @@ def rotate_left(tp):
 
     time.sleep(tp)
 
+    stop(0.0000001)
+
+
 def rotate_right(tp):
     gpio.output(Constants.IN1, True)
     gpio.output(Constants.IN2, False)
@@ -68,3 +73,5 @@ def rotate_right(tp):
     gpio.output(Constants.IN4, False)
 
     time.sleep(tp)
+
+    stop(0.0000001)
