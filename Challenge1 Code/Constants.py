@@ -20,3 +20,7 @@ ECHO = 18
 
 # Status LED
 LED = 22
+
+# Motor Control variables
+DUTYCYCLE = 50
+FREQ = 100
