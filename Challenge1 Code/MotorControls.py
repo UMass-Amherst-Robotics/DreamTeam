@@ -23,13 +23,11 @@ True-False --> reverse
 """
 
 
-def stop(tf):
+def stop():
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, False)
     gpio.output(Constants.IN3, False)
     gpio.output(Constants.IN4, False)
-
-    time.sleep(tf)
 
 
 def forward(tf):
@@ -40,7 +38,11 @@ def forward(tf):
 
     time.sleep(tf)
 
-    stop(0.0000001)
+    stop()
+
+    i = 1
+    while i < 27000000
+        i += 1
 
 
 
@@ -63,7 +65,11 @@ def rotate_left(tp):
 
     time.sleep(tp)
 
-    stop(0.0000001)
+    stop()
+
+    i = 1
+    while i < 27000000
+        i += 1
 
 
 def rotate_right(tp):
@@ -74,4 +80,8 @@ def rotate_right(tp):
 
     time.sleep(tp)
 
-    stop(0.0000001)
+    stop()
+
+    i = 1
+    while i < 27000000
+        i += 1
