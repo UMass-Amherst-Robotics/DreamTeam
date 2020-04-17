@@ -47,12 +47,12 @@ def reverse():
 # must have some parameter to let car know how long to rotate for
 # will have to sample timings to understand math behind it.
 def rotate_left(tp):
-    gpio.output(Constants.IN1, True)
-    gpio.output(Constants.IN2, False)
+    gpio.output(Constants.IN1, False)
+    gpio.output(Constants.IN2, True)
     gpio.output(Constants.IN3, False)
     gpio.output(Constants.IN4, True)
 
-    time.sleep(time)
+    time.sleep(tp)
 
 
 def rotate_right(tp):
