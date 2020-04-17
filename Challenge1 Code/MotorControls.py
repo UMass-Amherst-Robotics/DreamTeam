@@ -31,17 +31,15 @@ def stop():
 
 
 def forward(tf):
-    gpio.output(Constants.IN1, False)
-    gpio.output(Constants.IN2, True)
-    gpio.output(Constants.IN3, True)
-    gpio.output(Constants.IN4, False)
+    i = 0
 
-    time.sleep(tf)
+    while i < 400:
+        gpio.output(Constants.IN1, False)
+        gpio.output(Constants.IN2, True)
+        gpio.output(Constants.IN3, True)
+        gpio.output(Constants.IN4, False)
 
-    stop()
-
-    i = 1
-    while i < 10:
+        stop()
         i += 1
 
 
@@ -67,10 +65,6 @@ def rotate_left(tp):
 
     stop()
 
-    i = 1
-    while i < 10:
-        i += 1
-
 
 def rotate_right(tp):
     gpio.output(Constants.IN1, True)
@@ -81,7 +75,3 @@ def rotate_right(tp):
     time.sleep(tp)
 
     stop()
-
-    i = 1
-    while i < 10:
-        i += 1
