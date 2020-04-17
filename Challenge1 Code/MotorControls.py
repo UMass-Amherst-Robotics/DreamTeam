@@ -40,7 +40,7 @@ def forward(tf):
 
     time.sleep(tf)
 
-    stop(0.05)
+    stop(0.0001)
 
 
 
