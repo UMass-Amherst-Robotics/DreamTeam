@@ -41,7 +41,7 @@ def forward(tf):
     stop()
 
     i = 1
-    while i < 27000000
+    while i < 27000000:
         i += 1
 
 
@@ -68,7 +68,7 @@ def rotate_left(tp):
     stop()
 
     i = 1
-    while i < 27000000
+    while i < 27000000:
         i += 1
 
 
@@ -83,5 +83,5 @@ def rotate_right(tp):
     stop()
 
     i = 1
-    while i < 27000000
+    while i < 27000000:
         i += 1
