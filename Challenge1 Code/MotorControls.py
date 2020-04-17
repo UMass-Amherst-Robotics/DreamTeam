@@ -23,18 +23,24 @@ True-False --> reverse
 """
 
 
-def stop():
+def stop(tf):
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, False)
     gpio.output(Constants.IN3, False)
     gpio.output(Constants.IN4, False)
 
+    time.sleep(tf)
 
-def forward():
+
+def forward(tf):
     gpio.output(Constants.IN1, False)
     gpio.output(Constants.IN2, True)
     gpio.output(Constants.IN3, True)
     gpio.output(Constants.IN4, False)
+
+    time.sleep(tf)
+
+    stop(0.05)
 
 
 def reverse():
@@ -53,6 +59,8 @@ def rotate_left(tp):
     gpio.output(Constants.IN4, True)
 
     time.sleep(tp)
+
+    stop(0.05)
 
 
 def rotate_right(tp):
