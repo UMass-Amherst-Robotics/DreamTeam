@@ -40,8 +40,8 @@ def forward():
 def reverse():
     gpio.output(Constants.IN1, True)
     gpio.output(Constants.IN2, False)
-    gpio.output(Constants.IN3, True)
-    gpio.output(Constants.IN4, False)
+    gpio.output(Constants.IN3, False)
+    gpio.output(Constants.IN4, True)
 
 # function rotate_left/right(time) --> void
 # must have some parameter to let car know how long to rotate for
