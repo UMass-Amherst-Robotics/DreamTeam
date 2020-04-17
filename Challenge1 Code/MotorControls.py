@@ -43,6 +43,9 @@ def forward(tf):
     stop(0.05)
 
 
+
+
+
 def reverse():
     gpio.output(Constants.IN1, True)
     gpio.output(Constants.IN2, False)
