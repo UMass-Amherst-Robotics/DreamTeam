@@ -40,7 +40,7 @@ def forward(tf):
 
     time.sleep(tf)
 
-    stop(0.030)
+    stop(0.001)
 
 
 
@@ -63,7 +63,7 @@ def rotate_left(tp):
 
     time.sleep(tp)
 
-    stop(0.030)
+    stop(0.001)
 
 
 def rotate_right(tp):
