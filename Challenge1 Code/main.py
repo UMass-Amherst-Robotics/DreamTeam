@@ -36,24 +36,20 @@ def setupPins():
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
-	while True:
-		setupPins()
+	setupPins()
 
-		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, True)
+	# Set the debug LED to ensure code is getting to robot
+	gpio.output(Constants.LED, True)
+
+	while True:
 
 		distance = us.getDistanceFromSensor()
 		print(distance)
 
-		if distance > 40:
-			print("Moving Forward")
-			mc.forward()
-			time.sleep(0.5)
-			gpio.cleanup()
-		else:
-			print("Rotating Right")
-			mc.rotate_right(0.5)
-			gpio.cleanup()
-
+		print('moving forward')
+		mc.forward()
+		time.sleep(0.5)
+		if distance < 20:
+			break
 
 	gpio.cleanup()
