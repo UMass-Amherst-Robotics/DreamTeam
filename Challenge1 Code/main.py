@@ -47,7 +47,7 @@ if __name__ == "__main__":
 		# gpio.output(Constants.LED, True)
 
 		print("forwards")
-		mc.forward(10, 50)
+		mc.reverse(0.030, 100, 50)
 		gpio.cleanup()
 		x += 1
 

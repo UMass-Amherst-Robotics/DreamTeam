@@ -32,7 +32,7 @@ def stop():
     usleep(50)
 
 
-def forward(tf, dc):
+def forward(tf, fq, dc):
     gpio.output(Constants.IN1, False)
     m1 = gpio.PWM(Constants.IN2, 50)
     m2 = gpio.PWM(Constants.IN3, 50)
@@ -40,16 +40,25 @@ def forward(tf, dc):
 
     m1.start(50)
     m2.start(50)
-    time.sleep(0.030)
+    time.sleep(tf)
     m1.stop()
     m2.stop()
 
-def reverse(tf, dc):
-    wiringpi.softPwmWrite(Constants.IN1, dc)
-    wiringpi.softPwmWrite(Constants.IN2, 0)
-    wiringpi.softPwmWrite(Constants.IN3, 0)
-    wiringpi.softPwmWrite(Constants.IN4, dc)
-    wiringpi.delay(tf)
+    gpio.cleanup()
+
+def reverse(tf, fq, dc):
+    m1 = gpio.PWM(Constants.IN1, fq)
+    gpio.output(Constants.IN2, False)
+    gpio.output(Constants.IN3, False)
+    m2 = gpio.PWM(Constants.IN4, fq)
+
+    m1.start(dc)
+    m2.start(dc)
+    time.sleep(tf)
+    m1.stop()
+    m2.stop()
+
+    gpio.cleanup()
 
 # function rotate_left/right(time) --> void
 # must have some parameter to let car know how long to rotate for
