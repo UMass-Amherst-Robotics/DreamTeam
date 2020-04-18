@@ -21,7 +21,7 @@ def setupPins():
 
 	# WiringPi and GPIO Board Setup
 	wiringpi.wiringPiSetup()
-	gpio.setmode(gpio.BOARD)
+	# gpio.setmode(gpio.BOARD)
 
 	# H-Bridge / Motor Controller Pins
 		# Specify pins as outputs
@@ -47,25 +47,24 @@ def setupPins():
 # Main Code
 if __name__ == "__main__":
 
+	setupPins()
+
 	x = 0
 	while x < 50:
-		setupPins()
 
 		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, True)
+		# gpio.output(Constants.LED, True)
 
 		# get distance from
-		distance = us.getDistanceFromSensor()
+		distance = 50 #us.getDistanceFromSensor()
 		print(distance)
 
 		if distance > 40:
 			print("Moving Forward")
 			mc.forward(10, 25)
-			gpio.cleanup()
 		else:
 			print("Rotating Right")
 			mc.rotate_right(10, 25)
-			gpio.cleanup()
 
 
 	print("Exited Program. Timer up.")
