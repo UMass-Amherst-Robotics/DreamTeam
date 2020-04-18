@@ -33,14 +33,16 @@ def stop():
 
 
 def forward(tf, dc):
-    gpio.PWM(Constants.IN1, 0)
-    gpio.PWM(Constants.IN2, 50)
-    gpio.PWM(Constants.IN3, 50)
-    gpio.PWM(Constants.IN4, 0)
+    gpio.output(Constants.IN1, False)
+    m1 = gpio.PWM(Constants.IN2, 50)
+    m2 = gpio.PWM(Constants.IN3, 50)
+    gpio.output(Constants.IN4, False)
 
-    p.start(50)
+    m1.start(50)
+    m2.start(50)
     usleep(50)
-    p.stop()
+    m1.stop()
+    m2.stop()
 
 def reverse(tf, dc):
     wiringpi.softPwmWrite(Constants.IN1, dc)
