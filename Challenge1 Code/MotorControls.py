@@ -39,10 +39,11 @@ def forward(tf, dc):
     wiringpi.delay(tf)
 
 def reverse():
-    gpio.output(Constants.IN1, True)
-    gpio.output(Constants.IN2, False)
-    gpio.output(Constants.IN3, False)
-    gpio.output(Constants.IN4, True)
+    wiringpi.softPwmWrite(Constants.IN1, dc)
+    wiringpi.softPwmWrite(Constants.IN2, 0)
+    wiringpi.softPwmWrite(Constants.IN3, 0)
+    wiringpi.softPwmWrite(Constants.IN4, dc)
+    wiringpi.delay(tf)
 
 # function rotate_left/right(time) --> void
 # must have some parameter to let car know how long to rotate for

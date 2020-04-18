@@ -50,22 +50,14 @@ if __name__ == "__main__":
 	setupPins()
 
 	x = 0
-	while x < 50:
+	while x < 10:
 
 		# Set the debug LED to ensure code is getting to robot
 		# gpio.output(Constants.LED, True)
 
-		# get distance from
-		distance = 50 #us.getDistanceFromSensor()
-		print(distance)
-
-		if distance > 40:
-			print("Moving Forward")
-			mc.forward(10, 25)
-		else:
-			print("Rotating Right")
-			mc.rotate_right(10, 25)
-
+		print("Moving Backwards")
+		mc.reverse(10, 50)
+		x += 1
 
 	print("Exited Program. Timer up.")
 	gpio.cleanup()

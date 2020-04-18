@@ -13,10 +13,10 @@ OUTPUT = 1
 INPUT = 0
 
 # H-Bridge / Motor Controller
-IN1 = 7
-IN2 = 11
-IN3 = 13
-IN4 = 15
+IN1 = 4
+IN2 = 17
+IN3 = 27
+IN4 = 22
 
 # HC-SR04 Ultrasonic Sensor
 TRIG = 16
