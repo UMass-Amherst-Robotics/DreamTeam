@@ -11,6 +11,7 @@ import time						# Time Library
 import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
+import wiringpi					# Pulse Width Modulation (PWM)
 
 # MARK: Functions
 
@@ -18,12 +19,21 @@ import MotorControls as mc		# MotorControls.py
 # function setupPins(void) -> void
 def setupPins():
 
-	# H-Bridge / Motor Controller Pins
+	# WiringPi and GPIO Board Setup
+	wiringpi.wiringPiSetup()
 	gpio.setmode(gpio.BOARD)
-	gpio.setup(Constants.IN1, gpio.OUT)
-	gpio.setup(Constants.IN2, gpio.OUT)
-	gpio.setup(Constants.IN3, gpio.OUT)
-	gpio.setup(Constants.IN4, gpio.OUT)
+
+	# H-Bridge / Motor Controller Pins
+		# Specify pins as outputs
+	wiringpi.pinMode(Constants.IN1, Constants.OUTPUT)
+	wiringpi.pinMode(Constants.IN2, Constants.OUTPUT)
+	wiringpi.pinMode(Constants.IN3, Constants.OUTPUT)
+	wiringpi.pinMode(Constants.IN4, Constants.OUTPUT)
+		# Delegate them as Software PWM and set initial value to 0, max to 100
+	wiringpi.softPwmCreate(Constants.IN1, 0, 100)
+	wiringpi.softPwmCreate(Constants.IN2, 0, 100)
+	wiringpi.softPwmCreate(Constants.IN3, 0, 100)
+	wiringpi.softPwmCreate(Constants.IN4, 0, 100)
 
 	# HC-SR04 Ultrasonic Sensor Pins
 	gpio.setup(Constants.TRIG, gpio.OUT)
@@ -36,28 +46,25 @@ def setupPins():
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
+	setupPins()
+
 	x = 0
-	while True:
-		setupPins()
+	while x < 50:
 
 		# Set the debug LED to ensure code is getting to robot
 		gpio.output(Constants.LED, True)
 
+		# get distance from
 		distance = us.getDistanceFromSensor()
 		print(distance)
 
-		x += 1
-		if (x == 50):
-			break
-
 		if distance > 40:
 			print("Moving Forward")
-			mc.forward(0.10)
-			gpio.cleanup()
+			mc.forward(5, 25)
 		else:
 			print("Rotating Right")
-			mc.rotate_right(0.10)
-			gpio.cleanup()
+			mc.rotate_right(5, 25)
 
 
+	print("Exited Program. Timer up.")
 	gpio.cleanup()

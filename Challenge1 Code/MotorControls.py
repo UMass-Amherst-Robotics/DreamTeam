@@ -9,6 +9,7 @@
 import RPi.GPIO as gpio
 import time
 import Constants
+import wiringpi
 
 """
 Motor controls for the robot to be used in tandem with UltrasonicSensor.py to create
@@ -30,21 +31,12 @@ def stop():
     gpio.output(Constants.IN4, False)
 
 
-def forward(tf):
-    i = 0
-
-    while i < 400:
-        gpio.output(Constants.IN1, False)
-        gpio.output(Constants.IN2, True)
-        gpio.output(Constants.IN3, True)
-        gpio.output(Constants.IN4, False)
-
-        stop()
-        i += 1
-
-
-
-
+def forward(tf, dc):
+    wiringpi.softPwmWrite(Constants.IN1, 0)
+    wiringpi.softPwmWrite(Constants.IN2, dc)
+    wiringpi.softPwmWrite(Constants.IN3, dc)
+    wiringpi.softPwmWrite(Constants.IN4, 0)
+    wiringpi.delay(tf)
 
 def reverse():
     gpio.output(Constants.IN1, True)
@@ -55,23 +47,17 @@ def reverse():
 # function rotate_left/right(time) --> void
 # must have some parameter to let car know how long to rotate for
 # will have to sample timings to understand math behind it.
-def rotate_left(tp):
-    gpio.output(Constants.IN1, False)
-    gpio.output(Constants.IN2, True)
-    gpio.output(Constants.IN3, False)
-    gpio.output(Constants.IN4, True)
-
-    time.sleep(tp)
-
-    stop()
+def rotate_left(tp, dc):
+    wiringpi.softPwmWrite(Constants.IN1, 0)
+    wiringpi.softPwmWrite(Constants.IN2, dc)
+    wiringpi.softPwmWrite(Constants.IN3, 0)
+    wiringpi.softPwmWrite(Constants.IN4, dc)
+    wiringpi.delay(tf)
 
 
-def rotate_right(tp):
-    gpio.output(Constants.IN1, True)
-    gpio.output(Constants.IN2, False)
-    gpio.output(Constants.IN3, True)
-    gpio.output(Constants.IN4, False)
-
-    time.sleep(tp)
-
-    stop()
+def rotate_right(tp, dc):
+    wiringpi.softPwmWrite(Constants.IN1, dc)
+    wiringpi.softPwmWrite(Constants.IN2, 0)
+    wiringpi.softPwmWrite(Constants.IN3, dc)
+    wiringpi.softPwmWrite(Constants.IN4, 0)
+    wiringpi.delay(tf)

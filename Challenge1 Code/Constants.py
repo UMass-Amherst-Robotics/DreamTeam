@@ -1,4 +1,4 @@
-# UMass Robotics Team 
+# UMass Robotics Team
 # Challenge01 Main Project File
 #
 # Constants.py
@@ -7,6 +7,10 @@
 # Created on April 11, 2020
 
 # MARK: Challenge Constants and Variables
+
+# Pin Settings
+OUTPUT = 1
+INPUT = 0
 
 # H-Bridge / Motor Controller
 IN1 = 7
