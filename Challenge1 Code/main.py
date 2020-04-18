@@ -56,7 +56,7 @@ if __name__ == "__main__":
 		# gpio.output(Constants.LED, True)
 
 		print("Moving Backwards")
-		mc.reverse(10, 75)
+		mc.forward(10, 75)
 		x += 1
 
 	print("Exited Program. Timer up.")
