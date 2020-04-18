@@ -29,14 +29,18 @@ def stop():
     gpio.output(Constants.IN2, False)
     gpio.output(Constants.IN3, False)
     gpio.output(Constants.IN4, False)
+    usleep(50)
 
 
 def forward(tf, dc):
-    wiringpi.softPwmWrite(Constants.IN1, 0)
-    wiringpi.softPwmWrite(Constants.IN2, dc)
-    wiringpi.softPwmWrite(Constants.IN3, dc)
-    wiringpi.softPwmWrite(Constants.IN4, 0)
-    wiringpi.delay(tf)
+    gpio.PWM(Constants.IN1, 0)
+    gpio.PWM(Constants.IN2, 50)
+    gpio.PWM(Constants.IN3, 50)
+    gpio.PWM(Constants.IN4, 0)
+
+    p.start(50)
+    usleep(50)
+    p.stop()
 
 def reverse(tf, dc):
     wiringpi.softPwmWrite(Constants.IN1, dc)

@@ -11,7 +11,6 @@ import time						# Time Library
 import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
-import wiringpi					# Pulse Width Modulation (PWM)
 
 # MARK: Functions
 
@@ -19,48 +18,37 @@ import wiringpi					# Pulse Width Modulation (PWM)
 # function setupPins(void) -> void
 def setupPins():
 
-	# WiringPi and GPIO Board Setup
-	wiringpi.wiringPiSetup()
-	# gpio.setmode(gpio.BOARD)
+	gpio.setmode(gpio.BCM)
 
 	# H-Bridge / Motor Controller Pins
-		# Specify pins as outputs
-	wiringpi.pinMode(Constants.IN1, Constants.OUTPUT)
-	wiringpi.pinMode(Constants.IN2, Constants.OUTPUT)
-	wiringpi.pinMode(Constants.IN3, Constants.OUTPUT)
-	wiringpi.pinMode(Constants.IN4, Constants.OUTPUT)
-		# Delegate them as Software PWM and set initial value to 0, max to 100
-	wiringpi.softPwmCreate(Constants.IN1, 0, 100)
-	wiringpi.softPwmCreate(Constants.IN2, 0, 100)
-	wiringpi.softPwmCreate(Constants.IN3, 0, 100)
-	wiringpi.softPwmCreate(Constants.IN4, 0, 100)
+	gpio.setup(Constants.IN1, gpio.OUT)
+	gpio.setup(Constants.IN2, gpio.OUT)
+	gpio.setup(Constants.IN3, gpio.OUT)
+	gpio.setup(Constants.IN4, gpio.OUT)
 
 	# HC-SR04 Ultrasonic Sensor Pins
-	# gpio.setup(Constants.TRIG, gpio.OUT)
-	# gpio.setup(Constants.ECHO, gpio.IN)
+	gpio.setup(Constants.TRIG, gpio.OUT)
+	gpio.setup(Constants.ECHO, gpio.IN)
 
 	# LED Status Pin
-	# gpio.setup(Constants.LED, gpio.OUT)
+	gpio.setup(Constants.LED, gpio.OUT)
 
 
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
 
-	setupPins()
-
 	x = 0
 	while x < 30:
+
+		setupPins()
 
 		# Set the debug LED to ensure code is getting to robot
 		# gpio.output(Constants.LED, True)
 
 		print("forwards")
-		wiringpi.softPwmWrite(Constants.IN1, 0)
-		wiringpi.softPwmWrite(Constants.IN2, 50)
-		wiringpi.softPwmWrite(Constants.IN3, 50)
-		wiringpi.softPwmWrite(Constants.IN4, 0)
-		wiringpi.delay(10)
+		mc.forward(10, 50)
+		gpio.cleanup()
 		x += 1
 
 	print("Exited Program. Timer up.")
