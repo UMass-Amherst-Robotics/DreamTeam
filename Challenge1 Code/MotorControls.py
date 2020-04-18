@@ -40,7 +40,7 @@ def forward(tf, dc):
 
     m1.start(50)
     m2.start(50)
-    sleep(0.030)
+    time.sleep(0.030)
     m1.stop()
     m2.stop()
 
