@@ -36,11 +36,11 @@ def setupPins():
 	wiringpi.softPwmCreate(Constants.IN4, 0, 100)
 
 	# HC-SR04 Ultrasonic Sensor Pins
-	gpio.setup(Constants.TRIG, gpio.OUT)
-	gpio.setup(Constants.ECHO, gpio.IN)
+	# gpio.setup(Constants.TRIG, gpio.OUT)
+	# gpio.setup(Constants.ECHO, gpio.IN)
 
 	# LED Status Pin
-	gpio.setup(Constants.LED, gpio.OUT)
+	# gpio.setup(Constants.LED, gpio.OUT)
 
 
 # Description: Main Method for executing main code
