@@ -55,8 +55,12 @@ if __name__ == "__main__":
 		# Set the debug LED to ensure code is getting to robot
 		# gpio.output(Constants.LED, True)
 
-		print("Moving Backwards")
-		mc.forward(20, 75)
+		print("forwards")
+		wiringpi.softPwmWrite(Constants.IN1, 0)
+	    wiringpi.softPwmWrite(Constants.IN2, 50)
+	    wiringpi.softPwmWrite(Constants.IN3, 50)
+	    wiringpi.softPwmWrite(Constants.IN4, 0)
+	    wiringpi.delay(10)
 		x += 1
 
 	print("Exited Program. Timer up.")
