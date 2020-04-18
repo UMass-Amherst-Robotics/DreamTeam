@@ -50,14 +50,13 @@ if __name__ == "__main__":
 	setupPins()
 
 	x = 0
-	while x < 10:
+	while x < 50:
 
 		# Set the debug LED to ensure code is getting to robot
 		# gpio.output(Constants.LED, True)
 
 		print("Moving Backwards")
-		mc.reverse(10, 50)
+		mc.reverse(10, 75)
 		x += 1
 
 	print("Exited Program. Timer up.")
-	gpio.cleanup()
