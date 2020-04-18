@@ -38,7 +38,7 @@ def forward(tf, dc):
     wiringpi.softPwmWrite(Constants.IN4, 0)
     wiringpi.delay(tf)
 
-def reverse():
+def reverse(tf, dc):
     wiringpi.softPwmWrite(Constants.IN1, dc)
     wiringpi.softPwmWrite(Constants.IN2, 0)
     wiringpi.softPwmWrite(Constants.IN3, 0)
