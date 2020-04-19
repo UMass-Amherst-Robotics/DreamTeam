@@ -9,6 +9,7 @@
 import RPi.GPIO as gpio
 import time
 import Constants
+import main
 
 """
 ---------------------------------------------------------------------------------------
@@ -28,7 +29,7 @@ True-False --> reverse
 # MARK: Variables
 
 def getMotorsForPWM():
-    gpio.setmode(gpio.BCM)
+    main.setupPins()
     motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000), gpio.PWM(Constants.IN4, 5000)]
     for motor in motors:
         motor.start(0)
