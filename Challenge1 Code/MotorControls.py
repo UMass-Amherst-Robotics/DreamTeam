@@ -25,6 +25,28 @@ False-True --> forward
 True-False --> reverse
 ---------------------------------------------------------------------------------------
 """
+# MARK: Variables
+
+motors = getMotorsForPWM()
+
+def getMotorsForPWM():
+    gpio.setmode(gpio.BCM)
+	motors = [
+		gpio.PWM(Constants.IN1, 5000),
+		gpio.PWM(Constants.IN2, 5000),
+		gpio.PWM(Constants.IN3, 5000),
+        gpio.PWM(Constants.IN4, 5000),
+	]
+    for motor in motors:
+        motor.start(0)
+
+    return motors
+
+def shutdown():
+    for motor in motor:
+        motor.stop()
+    gpio.cleanup()
+
 
 # Description: stops all motors for a specified time frame (tf)
 # function stop(tf: Int) -> Void
@@ -40,15 +62,11 @@ def stop(tf):
 # Description: moves all motors in a forwards direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
 # function forward(tf: Int, fq: Int, dc: Int) -> Void
-def forwards(tf, fq, dc):
-    gpio.output(Constants.IN1, False)
-    m1 = gpio.PWM(Constants.IN2, fq)
-    m2 = gpio.PWM(Constants.IN3, fq)
-    gpio.output(Constants.IN4, False)
-
-    m1.start(dc); m2.start(dc)
-    time.sleep(tf)
-    m1.stop(); m2.stop()
+def forwards(dc):
+    motors[0].ChangeDutyCycle(0)
+    motors[1].ChangeDutyCycle(dc)
+    motors[2].ChangeDutyCycle(dc)
+    motors[3].ChangeDutyCycle(0)
 
     gpio.cleanup()
 

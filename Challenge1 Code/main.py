@@ -12,6 +12,9 @@ import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
 
+# Mark: Variables
+motor
+
 # MARK: Functions
 
 # Description: Setup the Raspi's GPIO inputs for control as input and outputs
@@ -26,6 +29,11 @@ def setupPins():
 	gpio.setup(Constants.IN3, gpio.OUT)
 	gpio.setup(Constants.IN4, gpio.OUT)
 
+	motors = [
+		gpio.PWM(Constants.IN1, fq),
+		gpio.PWM(Constants.IN1, fq),
+		gpio.PWM(Constants.IN1, fq)
+
 	# HC-SR04 Ultrasonic Sensor Pins
 	gpio.setup(Constants.TRIG, gpio.OUT)
 	gpio.setup(Constants.ECHO, gpio.IN)
@@ -33,10 +41,14 @@ def setupPins():
 	# LED Status Pin
 	gpio.setup(Constants.LED, gpio.OUT)
 
-
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
+
+	# initialization
+	setupPins()
+
+	motors = getMotorsForPWM()
 
 	# Constants and Variables
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
@@ -72,7 +84,7 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(0.030, 5000, 77)
+			mc.forwards(77)
 			print("Moving Forward")
 		else:
 			mc.rotateRight(0.030, 5000, 77)
@@ -81,8 +93,9 @@ if __name__ == "__main__":
 		if int(distance - previousDistanceReading) < 2:
 			numOfSameDistanceReadings += 1
 
-		previousDistanceReading = distance
+		# previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
 
 	print("Exited Program. Timer up.")
+	mc.shutdown()
