@@ -59,13 +59,11 @@ if __name__ == "__main__":
 			for _ in range(0, 50):
 				mc.reverse(100)
 				time.sleep(0.030)
-			setupPins()
 			print("Rotating right")
 			for x in range(0, 50):
 				mc.rotateRight(100)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
-			setupPins()
 
 		# MARK: Main Loop -------------------------------
 
@@ -87,6 +85,8 @@ if __name__ == "__main__":
 		previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
+
+		gpio.cleanup()
 
 	print("Exited Program. Timer up.")
 	mc.shutdown()

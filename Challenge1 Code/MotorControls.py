@@ -52,8 +52,6 @@ def stop():
     motors[2].ChangeDutyCycle(0)
     motors[3].ChangeDutyCycle(0)
 
-    gpio.cleanup()
-
 # Description: moves all motors in a forwards direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
 # function forward(tf: Int, fq: Int, dc: Int) -> Void
@@ -62,8 +60,6 @@ def forwards(dc):
     motors[1].ChangeDutyCycle(dc)
     motors[2].ChangeDutyCycle(dc)
     motors[3].ChangeDutyCycle(0)
-
-    gpio.cleanup()
 
 # Description: moves all motors in a reverse direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
@@ -74,8 +70,6 @@ def reverse(dc):
     motors[2].ChangeDutyCycle(0)
     motors[3].ChangeDutyCycle(dc)
 
-    gpio.cleanup()
-
 # Description: rotates all motors in a leftwards direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
 # function rotateLeft(tf: Int, fq: Int, dc: Int) -> Void
@@ -85,8 +79,6 @@ def rotateLeft(dc):
     motors[2].ChangeDutyCycle(0)
     motors[3].ChangeDutyCycle(dc)
 
-    gpio.cleanup()
-
 # Description: rotates all motors in a rightwards direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
 # function rotateRight(tf: Int, fq: Int, dc: Int) -> Void
@@ -95,5 +87,3 @@ def rotateRight(dc):
     motors[1].ChangeDutyCycle(0)
     motors[2].ChangeDutyCycle(dc)
     motors[3].ChangeDutyCycle(0)
-
-    gpio.cleanup()
