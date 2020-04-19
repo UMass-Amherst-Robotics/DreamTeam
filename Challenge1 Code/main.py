@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 
-	while intervalsUntilCompletion < 60:
+	while intervalsUntilCompletion < 20:
 
 		# MARK: Setup and Receive Data -----------------
 
@@ -57,12 +57,12 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 50):
-				mc.reverse(80)
+				mc.reverse(100)
 				time.sleep(0.030)
 			setupPins()
 			print("Rotating right")
 			for x in range(0, 50):
-				mc.rotateRight(80)
+				mc.rotateRight(100)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 			setupPins()
