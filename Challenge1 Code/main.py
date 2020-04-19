@@ -74,13 +74,13 @@ if __name__ == "__main__":
 			mc.reverse(50)
 			print("Moving Forward")
 		else:
-			mc.rotateRight(50)
+			mc.reverse(50)
 			print("Rotating Right")
 
 		if int(distance - previousDistanceReading) < 2:
 			numOfSameDistanceReadings += 1
 
-		previousDistanceReading = distance
+		#previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
 
