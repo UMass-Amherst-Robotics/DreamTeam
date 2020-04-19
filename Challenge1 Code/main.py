@@ -12,9 +12,6 @@ import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
 
-# Mark: Variables
-motor
-
 # MARK: Functions
 
 # Description: Setup the Raspi's GPIO inputs for control as input and outputs
@@ -42,8 +39,6 @@ if __name__ == "__main__":
 
 	# initialization
 	setupPins()
-
-	motors = getMotorsForPWM()
 
 	# Constants and Variables
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
