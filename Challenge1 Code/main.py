@@ -37,9 +37,6 @@ def setupPins():
 # Main Code
 if __name__ == "__main__":
 
-	# initialization
-	setupPins()
-
 	# Constants and Variables
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
@@ -60,10 +57,10 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 30):
-				mc.reverse(0.030, 50, 50)
+				mc.reverse(50)
 			print("Rotating right")
 			for _ in range(0, 30):
-				mc.rotateRight(0.030, 50, 50)
+				mc.rotateRight(50)
 			numOfSameDistanceReadings = 0
 
 		# MARK: Main Loop -------------------------------
@@ -74,16 +71,16 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(77)
+			mc.reverse(50)
 			print("Moving Forward")
 		else:
-			#mc.rotateRight(0.030, 5000, 77)
+			mc.rotateRight(50)
 			print("Rotating Right")
 
 		if int(distance - previousDistanceReading) < 2:
 			numOfSameDistanceReadings += 1
 
-		# previousDistanceReading = distance
+		previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
 
