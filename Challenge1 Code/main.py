@@ -52,6 +52,8 @@ if __name__ == "__main__":
 		# Set the debug LED to ensure code is getting to robot
 		gpio.output(Constants.LED, True)
 
+		### TODO ### Make this Stuck Code more robust
+
 		# Check and see if the robot is stuck
 		if numOfSameDistanceReadings > 2:
 			# If the robot is stuck,
@@ -79,13 +81,17 @@ if __name__ == "__main__":
 			mc.rotateRight(80)
 			print("Rotating Right")
 
+		# MARK: Cleanup -----------------------------------
+
+		# Check to see if the previous distance is relatively the same as the current
 		if int(abs(distance - previousDistanceReading)) < 2:
+			# They are relatively the same so increment
 			numOfSameDistanceReadings += 1
 		else:
 			numOfSameDistanceReadings = 0
 
+		# Record the distance for the next cycle and increment number of intervals performed
 		previousDistanceReading = distance
-
 		intervalsUntilCompletion += 1
 
 		gpio.cleanup()
