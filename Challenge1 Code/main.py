@@ -18,8 +18,9 @@ import MotorControls as mc		# MotorControls.py
 # function setupPins(void) -> void
 def setupPins():
 
+	gpio.setmode(gpio.BCM)
+
 	# H-Bridge / Motor Controller Pins
-	gpio.setmode(gpio.BOARD)
 	gpio.setup(Constants.IN1, gpio.OUT)
 	gpio.setup(Constants.IN2, gpio.OUT)
 	gpio.setup(Constants.IN3, gpio.OUT)
@@ -36,24 +37,17 @@ def setupPins():
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
-	while True:
+
+	x = 0
+	while x < 30:
+
 		setupPins()
 
 		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, True)
+		# gpio.output(Constants.LED, True)
 
-		distance = us.getDistanceFromSensor()
-		print(distance)
+		print("forwards")
+		mc.reverse(0.030, 50, 25)
+		x += 1
 
-		if distance > 40:
-			print("Moving Forward")
-			mc.forward()
-			time.sleep(0.030)
-			gpio.cleanup()
-		else:
-			print("Rotating Right")
-			mc.rotate_right(0.030)
-			gpio.cleanup()
-
-
-	gpio.cleanup()
+	print("Exited Program. Timer up.")
