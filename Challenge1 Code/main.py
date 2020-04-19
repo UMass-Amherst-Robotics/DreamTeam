@@ -74,7 +74,7 @@ if __name__ == "__main__":
 			mc.forwards(50)
 			print("Moving Forward")
 		else:
-			mc.rotateRight(77)
+			mc.rotateRight(80)
 			print("Rotating Right")
 
 		if int(distance - previousDistanceReading) < 2:
