@@ -27,8 +27,6 @@ True-False --> reverse
 """
 # MARK: Variables
 
-motors = getMotorsForPWM()
-
 def getMotorsForPWM():
     gpio.setmode(gpio.BCM)
     motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000), gpio.PWM(Constants.IN4, 5000)]
@@ -36,6 +34,8 @@ def getMotorsForPWM():
         motor.start(0)
 
     return motors
+
+motors = getMotorsForPWM()
 
 def shutdown():
     for motor in motor:
