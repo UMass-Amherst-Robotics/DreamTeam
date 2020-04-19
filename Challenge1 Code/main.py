@@ -81,7 +81,7 @@ if __name__ == "__main__":
 		if int(distance - previousDistanceReading) < 2:
 			numOfSameDistanceReadings += 1
 
-		#previousDistanceReading = distance
+		previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
 
