@@ -29,11 +29,6 @@ def setupPins():
 	gpio.setup(Constants.IN3, gpio.OUT)
 	gpio.setup(Constants.IN4, gpio.OUT)
 
-	motors = [
-		gpio.PWM(Constants.IN1, fq),
-		gpio.PWM(Constants.IN1, fq),
-		gpio.PWM(Constants.IN1, fq)
-
 	# HC-SR04 Ultrasonic Sensor Pins
 	gpio.setup(Constants.TRIG, gpio.OUT)
 	gpio.setup(Constants.ECHO, gpio.IN)
