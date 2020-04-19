@@ -63,6 +63,7 @@ if __name__ == "__main__":
 			for _ in range(0, 30):
 				mc.rotateRight(80)
 			numOfSameDistanceReadings = 0
+			setupPins()
 
 		# MARK: Main Loop -------------------------------
 
