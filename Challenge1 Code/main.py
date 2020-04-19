@@ -72,14 +72,16 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(0.030, 1000, 77)
+			mc.forwards(0.030, 5000, 77)
 			print("Moving Forward")
 		else:
-			mc.rotateRight(0.030, 1000, 77)
+			mc.rotateRight(0.030, 5000, 77)
 			print("Rotating Right")
 
 		if int(distance - previousDistanceReading) < 2:
 			numOfSameDistanceReadings += 1
+
+		previousDistanceReading = distance
 
 		intervalsUntilCompletion += 1
 
