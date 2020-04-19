@@ -79,7 +79,7 @@ if __name__ == "__main__":
 			mc.rotateRight(80)
 			print("Rotating Right")
 
-		if int(distance - previousDistanceReading) < 2:
+		if int(abs(distance - previousDistanceReading)) < 2:
 			numOfSameDistanceReadings += 1
 		else:
 			numOfSameDistanceReadings = 0
