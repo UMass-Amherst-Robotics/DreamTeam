@@ -31,7 +31,7 @@ motors = getMotorsForPWM()
 
 def getMotorsForPWM():
     gpio.setmode(gpio.BCM)
-	motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000), gpio.PWM(Constants.IN4, 5000)]
+    motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000), gpio.PWM(Constants.IN4, 5000)]
     for motor in motors:
         motor.start(0)
 
