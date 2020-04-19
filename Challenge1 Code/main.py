@@ -38,16 +38,47 @@ def setupPins():
 # Main Code
 if __name__ == "__main__":
 
-	x = 0
-	while x < 60:
+	# Constants and Variables
+	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
+	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
+	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 
+	while intervalsUntilCompletion < 60:
+
+		# MARK: Setup and Receive Data -----------------
+
+		# Setup Pins
 		setupPins()
 
 		# Set the debug LED to ensure code is getting to robot
-		# gpio.output(Constants.LED, True)
+		gpio.output(Constants.LED, True)
 
-		print("forwards")
-		mc.forwards(0.030, 50, 100)
-		x += 1
+		# Check and see if the robot is stuck
+		if numOfSameDistanceReadings > 2:
+			# If the robot is stuck,
+			for _ in range(0, 30):
+				mc.forwards(0.030, 50, 50)
+			for _ in range(0, 30):
+				mc.rotateRight(0.030, 50, 50)
+			numOfSameDistanceReadings = 0
+
+		# MARK: Main Loop -------------------------------
+
+		# Get distance reading from Ultrasonic Sensor (takes about a second)
+		distance = us.getDistanceFromSensor()
+		print(distance)
+
+		# Read the distance and check to see
+		if distance > 40:
+			mc.forwards(0.030, 50, 25)
+			print("Moving Forward")
+		else:
+			mc.rotateRight(0.030, 50, 25)
+			print("Rotating Right")
+
+		if int(distance - previousDistanceReading) < 2:
+			numOfSameDistanceReadings += 1
+
+		intervalsUntilCompletion += 1
 
 	print("Exited Program. Timer up.")
