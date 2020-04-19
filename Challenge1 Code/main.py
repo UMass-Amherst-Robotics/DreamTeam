@@ -67,7 +67,7 @@ if __name__ == "__main__":
 		# MARK: Main Loop -------------------------------
 
 		# Get distance reading from Ultrasonic Sensor (takes about a second)
-		distance = 50 #us.getDistanceFromSensor()
+		distance = us.getDistanceFromSensor()
 		print(distance)
 
 		# Read the distance and check to see
