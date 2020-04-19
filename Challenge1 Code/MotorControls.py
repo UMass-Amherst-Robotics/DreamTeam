@@ -39,7 +39,7 @@ def getMotorsForPWM():
 motors = getMotorsForPWM()
 
 def shutdown():
-    for motor in motor:
+    for motor in motors:
         motor.stop()
     gpio.cleanup()
 
