@@ -12,6 +12,8 @@ import Constants
 
 """
 ---------------------------------------------------------------------------------------
+How the Motors Work:
+
 Motor controls for the robot to be used in tandem with UltrasonicSensor.py to create
 basic algorithm for movement
 
@@ -38,7 +40,7 @@ def stop(tf):
 # Description: moves all motors in a forwards direction
 # Parameters: tf = timeFrame, fq = Frequency (Hz), dc = Duty Cycle
 # function forward(tf: Int, fq: Int, dc: Int) -> Void
-def forward(tf, fq, dc):
+def forwards(tf, fq, dc):
     gpio.output(Constants.IN1, False)
     m1 = gpio.PWM(Constants.IN2, fq)
     m2 = gpio.PWM(Constants.IN3, fq)
