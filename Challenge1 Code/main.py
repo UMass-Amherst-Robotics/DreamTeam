@@ -57,10 +57,11 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 30):
-				mc.reverse(50)
+				mc.reverse(80)
+			setupPins()
 			print("Rotating right")
 			for _ in range(0, 30):
-				mc.rotateRight(50)
+				mc.rotateRight(80)
 			numOfSameDistanceReadings = 0
 
 		# MARK: Main Loop -------------------------------
