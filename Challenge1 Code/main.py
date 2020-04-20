@@ -19,7 +19,15 @@ import setup
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
+	# setting up pins
+	setup.setupPins()
 
+	# instantiate motor class
+	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
+
+	Motors.forwards(78)
+
+	"""
 	# Constants and Variables
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
@@ -31,6 +39,7 @@ if __name__ == "__main__":
 
 		# Setup Pins
 		setup.setupPins()
+		Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
 		# Set the debug LED to ensure code is getting to robot
 		gpio.output(Constants.LED, True)
@@ -81,3 +90,4 @@ if __name__ == "__main__":
 
 	print("Exited Program. Timer up.")
 	mc.shutdown()
+	"""

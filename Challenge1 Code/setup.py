@@ -30,11 +30,4 @@ def setupPins():
         # LED Status Pin
         gpio.setup(Constants.LED, gpio.OUT)
 
-        # Motors are instantiated with a frequency of 5000 Hz or 5 KHz
-        motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000),
-                  gpio.PWM(Constants.IN4, 5000)]
-        for motor in motors:
-            motor.start(0)
-
-        return motors
 
