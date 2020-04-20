@@ -14,6 +14,8 @@ import MotorControls as mc		# MotorControls.py
 import setup
 
 # MARK: Functions
+def check_stuck():
+	
 
 
 # Description: Main Method for executing main code
