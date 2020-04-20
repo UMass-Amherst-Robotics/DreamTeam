@@ -11,27 +11,10 @@ import time						# Time Library
 import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
+import setup
 
 # MARK: Functions
 
-# Description: Setup the Raspi's GPIO inputs for control as input and outputs
-# function setupPins(void) -> void
-def setupPins():
-
-	gpio.setmode(gpio.BCM)
-
-	# H-Bridge / Motor Controller Pins
-	gpio.setup(Constants.IN1, gpio.OUT)
-	gpio.setup(Constants.IN2, gpio.OUT)
-	gpio.setup(Constants.IN3, gpio.OUT)
-	gpio.setup(Constants.IN4, gpio.OUT)
-
-	# HC-SR04 Ultrasonic Sensor Pins
-	gpio.setup(Constants.TRIG, gpio.OUT)
-	gpio.setup(Constants.ECHO, gpio.IN)
-
-	# LED Status Pin
-	gpio.setup(Constants.LED, gpio.OUT)
 
 # Description: Main Method for executing main code
 # Main Code
@@ -47,7 +30,7 @@ if __name__ == "__main__":
 		# MARK: Setup and Receive Data -----------------
 
 		# Setup Pins
-		setupPins()
+		setup.setupPins()
 
 		# Set the debug LED to ensure code is getting to robot
 		gpio.output(Constants.LED, True)

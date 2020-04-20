@@ -7,9 +7,7 @@
 # Created on April 11, 2020
 
 import RPi.GPIO as gpio
-import time
-import Constants
-import main
+import setup
 
 """
 ---------------------------------------------------------------------------------------
@@ -28,19 +26,8 @@ True-False --> reverse
 """
 # MARK: Variables
 
-# Description: Sets up the four motors as PWM, we will use these throughout the program to change the duty cycle and alter their speed
-# function getMotorsForPWM() -> Void
-def getMotorsForPWM():
-    main.setupPins()
-    # Motors are instantiated with a frequency of 5000 Hz or 5 KHz
-    motors = [gpio.PWM(Constants.IN1, 5000), gpio.PWM(Constants.IN2, 5000), gpio.PWM(Constants.IN3, 5000), gpio.PWM(Constants.IN4, 5000)]
-    for motor in motors:
-        motor.start(0)
-
-    return motors
-
 # MARK: Main Motors Variable - Call this for all motor actions / movements
-motors = getMotorsForPWM()
+motors = setup.setupPins()
 
 # Description: Stops the PWM Motors and performs a gpio cleanup **This is different from stopping***
 # function stop() -> Void
