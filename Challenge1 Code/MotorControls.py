@@ -25,9 +25,9 @@ True-False --> reverse
 """
 
 class Motors:
-    def __init__(self, motors):
-        self.motors = [gpio.PWM(m, 5000) for m in motors]
-        for motor in motors:
+    def __init__(self, motor_pins):
+        self.motors = [gpio.PWM(m, 5000) for m in motor_pins]
+        for motor in self.motors:
             motor.start(0)
     
     # Description: Stops the PWM Motors and performs a gpio cleanup **This is different from stopping***
