@@ -27,6 +27,8 @@ if __name__ == "__main__":
 
 	Motors.forwards(78)
 
+	Motors.shutdown()
+
 	"""
 	# Constants and Variables
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated

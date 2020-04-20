@@ -1,7 +1,7 @@
 # UMass Robotics Team
 # Challenge01 Main Project File
 #
-# main.py
+# setup.py
 #
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 20, 2020
@@ -12,9 +12,8 @@ import Constants 				# Constants Python File
 # MARK: Functions
 
 # Description: Setup the Raspi's GPIO inputs for control as input and outputs
-# function setupPins(void) -> motors
+# function setupPins(void) -> void
 def setupPins():
-
         gpio.setmode(gpio.BCM)
 
         # H-Bridge / Motor Controller Pins

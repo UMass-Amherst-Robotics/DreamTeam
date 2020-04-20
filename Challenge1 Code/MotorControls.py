@@ -26,6 +26,7 @@ True-False --> reverse
 
 class Motors:
     def __init__(self, motor_pins):
+        # Setup up motors as PWM; instantiated with frequency of 5 KHz
         self.motors = [gpio.PWM(m, 5000) for m in motor_pins]
         for motor in self.motors:
             motor.start(0)
