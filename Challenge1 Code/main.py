@@ -19,33 +19,23 @@ import setup
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
+	# Constants and Variables
+	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
+	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
+	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
+
+	# MARK: Setup and Receive Data -----------------
+
 	# setting up pins
 	setup.setupPins()
 
 	# instantiate motor class
 	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
-	Motors.forwards(78)
-
-	Motors.shutdown()
-
-	"""
-	# Constants and Variables
-	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
-	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
-	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
+	# Set the debug LED to ensure code is getting to robot
+	gpio.output(Constants.LED, True)
 
 	while intervalsUntilCompletion < 20:
-
-		# MARK: Setup and Receive Data -----------------
-
-		# Setup Pins
-		setup.setupPins()
-		Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
-
-		# Set the debug LED to ensure code is getting to robot
-		gpio.output(Constants.LED, True)
-
 		### TODO ### Make this Stuck Code more robust
 
 		# Check and see if the robot is stuck
@@ -53,11 +43,11 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 50):
-				mc.reverse(78)
+				Motors.reverse(78)
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 50):
-				mc.rotateRight(100)
+				Motors.rotateRight(100)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
@@ -69,10 +59,10 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(50)
+			Motors.forwards(50)
 			print("Moving Forward")
 		else:
-			mc.rotateRight(80)
+			Motors.rotateRight(80)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
@@ -88,8 +78,6 @@ if __name__ == "__main__":
 		previousDistanceReading = distance
 		intervalsUntilCompletion += 1
 
-		gpio.cleanup()
-
+	gpio.cleanup()
 	print("Exited Program. Timer up.")
-	mc.shutdown()
-	"""
+
