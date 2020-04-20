@@ -14,11 +14,12 @@ import MotorControls as mc		# MotorControls.py
 import setup
 
 # MARK: Functions
-def check_stuck():
-	
-
 
 # Description: Main Method for executing main code
+def check_stuck():
+	return
+
+
 # Main Code
 if __name__ == "__main__":
 	# Constants and Variables
