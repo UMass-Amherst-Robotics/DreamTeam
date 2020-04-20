@@ -50,7 +50,7 @@ if __name__ == "__main__":
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 50):
-				Motors.rotateRight(100)
+				Motors.rotateRight(10)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 			Motors.forwards(50)
 			print("Moving Forward")
 		else:
-			Motors.rotateRight(80)
+			Motors.rotateRight(10)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
