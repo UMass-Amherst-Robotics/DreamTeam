@@ -23,7 +23,7 @@ if __name__ == "__main__":
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
-	
+
 	# setting up pins
 	setup.setupPins()
 
@@ -42,17 +42,19 @@ if __name__ == "__main__":
 
 		# Check and see if the robot is stuck
 		if numOfSameDistanceReadings > 2:
-			# If the robot is stuck,
-			print("Robot is stuck, moving backwards")
-			for _ in range(0, 10):
-				Motors.reverse(80)
-				time.sleep(0.030)
-			print("Rotating right")
-			for x in range(0, 20):
-				Motors.rotateRight(60)
-				time.sleep(0.030)
-			if (int(abs(distance - previousDistanceReading)) > 2):
-				numOfSameDistanceReadings = 0
+			while (int(abs(distance - previousDistanceReading)) < 4):
+				# If the robot is stuck,
+				print("Robot is stuck, moving backwards")
+				for _ in range(0, 10):
+					Motors.reverse(80)
+					time.sleep(0.030)
+					print("Rotating right")
+				for x in range(0, 20):
+					Motors.rotateRight(60)
+					time.sleep(0.030)
+			numOfSameDistanceReadings = 0
+
+
 
 		# MARK: Main Loop -------------------------------
 
