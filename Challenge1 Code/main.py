@@ -90,6 +90,8 @@ if __name__ == "__main__":
 		if int(abs(distance - previousDistanceReading)) < 2:
 			# They are relatively the same so increment
 			numOfSameDistanceReadings += 1
+		elif int(distance) > 3000:
+			numOfSameDistanceReadings = 3
 		else:
 			numOfSameDistanceReadings = 0
 
