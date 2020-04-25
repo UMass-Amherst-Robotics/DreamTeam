@@ -63,17 +63,25 @@ if __name__ == "__main__":
 		print(distance)
 
 		# Read the distance and check to see
-		if distance > 40:
+		if distance > 30:
 			Motors.forwards(30)
 			print("Moving Forward")
 		else:
-			Motors.reverse(30)
-			time.sleep(0.090)
-			Motors.rotateRight(87)
-			print("Rotating Right")
+			while distance < 100:
+				Motors.reverse(30)
+				time.sleep(0.090)
+				Motors.rotateRight(87)
+				print("Rotating Right")
+				increment()
+
 
 		# MARK: Cleanup -----------------------------------
+		increment()
 
+	gpio.cleanup()
+	print("Exited Program. Timer up.")
+
+	def increment():
 		# Check to see if the previous distance is relatively the same as the current
 		if int(abs(distance - previousDistanceReading)) < 2:
 			# They are relatively the same so increment
@@ -86,6 +94,3 @@ if __name__ == "__main__":
 		# Record the distance for the next cycle and increment number of intervals performed
 		previousDistanceReading = distance
 		intervalsUntilCompletion += 1
-
-	gpio.cleanup()
-	print("Exited Program. Timer up.")
