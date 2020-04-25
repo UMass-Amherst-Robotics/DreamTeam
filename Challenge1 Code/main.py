@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
 		# Check and see if the robot is stuck
 		if numOfSameDistanceReadings > 2:
-			while (int(abs(distance - previousDistanceReading)) < 4):
+			while (int(abs(us.getDistanceFromSensor() - previousDistanceReading)) < 4):
 				# If the robot is stuck,
 				print("Robot is stuck, moving backwards")
 				for _ in range(0, 5):
