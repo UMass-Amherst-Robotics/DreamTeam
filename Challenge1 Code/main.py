@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(20)
+			mc.forwards(30)
 			print("Moving Forward")
 		else:
 			mc.reverse(30)
