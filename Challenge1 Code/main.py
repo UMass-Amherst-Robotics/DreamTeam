@@ -30,6 +30,8 @@ if __name__ == "__main__":
 	# instantiate motor class
 	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
+	status = False
+	sides = []
 
 	while intervalsUntilCompletion < 40:
 
@@ -54,6 +56,15 @@ if __name__ == "__main__":
 					Motors.rotateRight(100)
 					time.sleep(0.010)
 			numOfSameDistanceReadings = 0
+
+		status = True
+		if status == True:
+			length = us.getDistanceFromSensor()
+			sides.append(length)
+			status = False
+
+		if len(sides) == 4:
+			break
 
 
 		# MARK: Main Loop -------------------------------
