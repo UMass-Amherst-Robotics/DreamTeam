@@ -53,8 +53,8 @@ if __name__ == "__main__":
 					Motors.reverse(80)
 					time.sleep(0.030)
 					print("Rotating right")
-				for x in range(0, 10):
-					Motors.rotateRight(60)
+				for x in range(0, 5):
+					Motors.rotateRight(100)
 					time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 30 and not(motorRotating):
-			Motors.forwards(30)
+			Motors.forwards(20)
 			print("Moving Forward")
 		else:
 			motorRotating = True
