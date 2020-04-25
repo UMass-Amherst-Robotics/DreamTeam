@@ -58,15 +58,6 @@ if __name__ == "__main__":
 					time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
-		# MARK: Record side lengths -------------------
-		if status == True:
-			length = us.getDistanceFromSensor()
-			print(length)
-			sides.append(length)
-			status = False
-
-		if len(sides) == 4:
-			break
 
 		# MARK: Main Loop -------------------------------
 
