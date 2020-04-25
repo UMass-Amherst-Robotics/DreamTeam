@@ -37,16 +37,15 @@ if __name__ == "__main__":
 
 	while intervalsUntilCompletion < 40:
 
-	# setting up pins
-	setup.setupPins()
+		# setting up pins
+		setup.setupPins()
 
-	# instantiate motor class
-	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
+		# instantiate motor class
+		Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
-	# Set the debug LED to ensure code is getting to robot
-	gpio.output(Constants.LED, True)
+		# Set the debug LED to ensure code is getting to robot
+		gpio.output(Constants.LED, True)
 
-	while intervalsUntilCompletion < 20:
 		### TODO ### Make this Stuck Code more robust
 
 		# Check and see if the robot is stuck
@@ -54,11 +53,11 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 10):
-				mc.reverse(80)
+				Motors.reverse(80)
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 20):
-				mc.rotateRight(60)
+				Motors.rotateRight(60)
 				time.sleep(0.030)
 			if (int(abs(distance - previousDistanceReading)) > 2)
 				numOfSameDistanceReadings = 0
@@ -71,12 +70,12 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(30)
+			Motors.forwards(30)
 			print("Moving Forward")
 		else:
-			mc.reverse(30)
+			Motors.reverse(30)
 			time.sleep(0.060)
-			mc.rotateRight(86)
+			Motors.rotateRight(86)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
