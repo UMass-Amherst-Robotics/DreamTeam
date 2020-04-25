@@ -59,7 +59,7 @@ if __name__ == "__main__":
 			for x in range(0, 20):
 				Motors.rotateRight(60)
 				time.sleep(0.030)
-			if (int(abs(distance - previousDistanceReading)) > 2)
+			if (int(abs(distance - previousDistanceReading)) > 2):
 				numOfSameDistanceReadings = 0
 
 		# MARK: Main Loop -------------------------------
