@@ -23,14 +23,17 @@ if __name__ == "__main__":
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
+	
+	# setting up pins
+	setup.setupPins()
+
+	# instantiate motor class
+	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
 	while intervalsUntilCompletion < 40:
 
 		# setting up pins
 		setup.setupPins()
-
-		# instantiate motor class
-		Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
 		# Set the debug LED to ensure code is getting to robot
 		gpio.output(Constants.LED, True)
