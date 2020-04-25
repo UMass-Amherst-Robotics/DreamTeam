@@ -60,7 +60,7 @@ if __name__ == "__main__":
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
 			for _ in range(0, 10):
-				mc.reverse(50)
+				mc.reverse(80)
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 5):
