@@ -29,11 +29,3 @@ def setupPins():
 
         # LED Status Pin
         gpio.setup(Constants.LED, gpio.OUT)
-
-# Description: Set up Keyboard Listener / Handler so that the user can switch into manual override mode if need be
-# function setupKeyboard(on_press) -> void
-def setupKeyboard(on_press, on_release):
-    with Listener(
-        on_press=on_press,
-        on_release=on_release) as Listener:
-            Listener.join()

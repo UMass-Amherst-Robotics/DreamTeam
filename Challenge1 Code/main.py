@@ -11,17 +11,8 @@ import time									# Time Library
 import Constants 							# Constants Python File
 import UltrasonicSensor as us				# UltrasonicSensor.py
 import MotorControls as mc					# MotorControls.py
-from pynput.keyboard import Key, Listener	# Keyboard Library
 
 # MARK: Functions
-
-# Description: on_press function needed to revert to manual controls
-def on_press(key):
-	if key == Key.m:
-		print("Entered Manual Operation Mode")
-
-def on_release(key):
-	print('{0} released'.format(key))
 
 # Description: Main Method for executing main code
 # Main Code
@@ -31,9 +22,6 @@ if __name__ == "__main__":
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
-
-	# setting up Keyboard
-	setup.setupKeyboard(on_press, on_release)
 
 	while intervalsUntilCompletion < 40:
 
