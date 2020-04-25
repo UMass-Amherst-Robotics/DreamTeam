@@ -6,8 +6,8 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 20, 2020
 
-import RPi.GPIO as gpio 		# GPIO Library
-import Constants 				# Constants Python File
+import RPi.GPIO as gpio     # GPIO Library
+import Constants 			# Constants Python File
 
 # MARK: Functions
 
@@ -28,5 +28,3 @@ def setupPins():
 
         # LED Status Pin
         gpio.setup(Constants.LED, gpio.OUT)
-
-
