@@ -51,6 +51,7 @@ if __name__ == "__main__":
 			Motors.stop()
 			v1 = True
 
+	print('vertex 1 found')
 	distance = us.getDistanceFromSensor()
 	edges.append(distance)
 
@@ -66,6 +67,7 @@ if __name__ == "__main__":
 			Motors.stop()
 			v2 = True
 
+	print('vertex 2 found')
 	distance = us.getDistanceFromSensor()
 	edges.append(distance)
 
@@ -80,6 +82,7 @@ if __name__ == "__main__":
 			Motors.stop()
 			v3 = True
 
+	print('vertex 3 found')
 	distance = us.getDistanceFromSensor()
 	edges.append(distance)
 	
@@ -94,6 +97,7 @@ if __name__ == "__main__":
 			Motors.stop()
 			v4 = True
 
+	print('vertex 4 found')
 	distance = us.getDistanceFromSensor()
 	edges.append(distance)
 	
