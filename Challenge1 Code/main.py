@@ -64,7 +64,7 @@ if __name__ == "__main__":
 		print(distance)
 
 		# Read the distance and check to see
-		if distance > 30 && !motorRotating:
+		if distance > 30 and !motorRotating:
 			Motors.forwards(30)
 			print("Moving Forward")
 		else:
