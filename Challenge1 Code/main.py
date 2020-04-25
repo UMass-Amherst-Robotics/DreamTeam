@@ -12,6 +12,7 @@ import Constants 				# Constants Python File
 import UltrasonicSensor as us	# UltrasonicSensor.py
 import MotorControls as mc		# MotorControls.py
 import setup
+from Nodes import Node
 
 # MARK: Functions
 
@@ -19,11 +20,6 @@ import setup
 # Description: Main Method for executing main code
 # Main Code
 if __name__ == "__main__":
-	# Constants and Variables
-	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
-	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
-	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
-
 	# MARK: Setup and Receive Data -----------------
 
 	# setting up pins
@@ -35,49 +31,78 @@ if __name__ == "__main__":
 	# Set the debug LED to ensure code is getting to robot
 	gpio.output(Constants.LED, True)
 
-	while intervalsUntilCompletion < 20:
-		### TODO ### Make this Stuck Code more robust
 
-		# Check and see if the robot is stuck
-		if numOfSameDistanceReadings > 2:
-			# If the robot is stuck,
-			print("Robot is stuck, moving backwards")
-			for _ in range(0, 50):
-				Motors.reverse(78)
-				time.sleep(0.030)
-			print("Rotating right")
-			for x in range(0, 50):
-				Motors.rotateRight(100)
-				time.sleep(0.030)
-			numOfSameDistanceReadings = 0
-
-		# MARK: Main Loop -------------------------------
-
-		# Get distance reading from Ultrasonic Sensor (takes about a second)
+	# MARK: Main pathing code ------------------------
+	# TODO: Find perfect values for dc and time.sleep to rotate 90 degrees
+	# variables to keep track if vertex has been found
+	v1, v2, v3, v4 = False
+	# list to keep track of edge weights
+	edges = []
+	
+	# finds the next vertex and stops when edge is reached
+	# rotates car 90 to face next wall and records that distance from v_x to v_(x+1) in edges
+	while v1 == False:
 		distance = us.getDistanceFromSensor()
-		print(distance)
-
-		# Read the distance and check to see
-		if distance > 40:
+		if distance > 20:
 			Motors.forwards(50)
-			print("Moving Forward")
+
 		else:
-			Motors.rotateRight(80)
-			print("Rotating Right")
+			Motors.rotate(50)
+			time.sleep(0.01)
+			Motors.stop()
+			v1 = True
 
-		# MARK: Cleanup -----------------------------------
+	distance = us.getDistanceFromSensor()
+	edges.append(distance)
 
-		# Check to see if the previous distance is relatively the same as the current
-		if int(abs(distance - previousDistanceReading)) < 2:
-			# They are relatively the same so increment
-			numOfSameDistanceReadings += 1
+	# finds first vertex of area
+	while v2 == False:
+		distance = us.getDistanceFromSensor()
+		if distance > 20:
+			Motors.forwards(50)
+
 		else:
-			numOfSameDistanceReadings = 0
+			Motors.rotate(50)
+			time.sleep(0.01)
+			Motors.stop()
+			v2 = True
 
-		# Record the distance for the next cycle and increment number of intervals performed
-		previousDistanceReading = distance
-		intervalsUntilCompletion += 1
+	distance = us.getDistanceFromSensor()
+	edges.append(distance)
+
+	while v3 == False:
+		distance = us.getDistanceFromSensor()
+		if distance > 20:
+			Motors.forwards(50)
+
+		else:
+			Motors.rotate(50)
+			time.sleep(0.01)
+			Motors.stop()
+			v3 = True
+
+	distance = us.getDistanceFromSensor()
+	edges.append(distance)
+	
+	while v4 == False:
+		distance = us.getDistanceFromSensor()
+		if distance > 20:
+			Motors.forwards(50)
+
+		else:
+			Motors.rotate(50)
+			time.sleep(0.01)
+			Motors.stop()
+			v4 = True
+
+	distance = us.getDistanceFromSensor()
+	edges.append(distance)
+	
+	perimeter = sum(edges)
+	print(perimeter)
+
 
 	gpio.cleanup()
-	print("Exited Program. Timer up.")
+
+
 
