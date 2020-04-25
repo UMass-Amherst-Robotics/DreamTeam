@@ -53,7 +53,7 @@ if __name__ == "__main__":
 					time.sleep(0.030)
 					print("Rotating right")
 				for x in range(0, 4):
-					Motors.rotateRight(100)
+					Motors.rotateRight(80)
 					time.sleep(0.010)
 			numOfSameDistanceReadings = 0
 
