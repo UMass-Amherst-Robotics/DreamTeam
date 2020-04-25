@@ -45,11 +45,11 @@ if __name__ == "__main__":
 			while (int(abs(distance - previousDistanceReading)) < 4):
 				# If the robot is stuck,
 				print("Robot is stuck, moving backwards")
-				for _ in range(0, 10):
+				for _ in range(0, 5):
 					Motors.reverse(80)
 					time.sleep(0.030)
 					print("Rotating right")
-				for x in range(0, 20):
+				for x in range(0, 10):
 					Motors.rotateRight(60)
 					time.sleep(0.030)
 			numOfSameDistanceReadings = 0
