@@ -81,7 +81,7 @@ if __name__ == "__main__":
 		else:
 			mc.reverse(30)
 			time.sleep(0.060)
-			mc.rotateRight(90)
+			mc.rotateRight(86)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
