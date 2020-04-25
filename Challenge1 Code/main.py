@@ -68,7 +68,7 @@ if __name__ == "__main__":
 			print("Moving Forward")
 		else:
 			Motors.reverse(30)
-			time.sleep(0.060)
+			time.sleep(0.090)
 			Motors.rotateRight(87)
 			print("Rotating Right")
 
