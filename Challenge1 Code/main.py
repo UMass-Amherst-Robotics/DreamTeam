@@ -59,12 +59,12 @@ if __name__ == "__main__":
 		if numOfSameDistanceReadings > 2:
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
-			for _ in range(0, 20):
+			for _ in range(0, 10):
 				mc.reverse(50)
 				time.sleep(0.030)
 			print("Rotating right")
-			for x in range(0, 20):
-				mc.rotateRight(90)
+			for x in range(0, 10):
+				mc.rotateRight(80)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 			print("Moving Forward")
 		else:
 			mc.reverse(30)
-			time.sleep(0.3)
+			time.sleep(0.030)
 			mc.rotateRight(75)
 			print("Rotating Right")
 
