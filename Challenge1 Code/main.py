@@ -74,7 +74,7 @@ if __name__ == "__main__":
 			Motors.rotateRight(87)
 			print("Rotating Right")
 
-			if distance > 90:
+			if distance > 70:
 				motorRotating = False
 
 		# MARK: Cleanup -----------------------------------
