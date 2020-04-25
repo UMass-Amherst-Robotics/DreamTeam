@@ -6,9 +6,8 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 20, 2020
 
-import RPi.GPIO as gpio 		          # GPIO Library
-import Constants 				          # Constants Python File
-from pynput.keyboard import Key, Listener # Keyboard Library
+import RPi.GPIO as gpio     # GPIO Library
+import Constants 			# Constants Python File
 
 # MARK: Functions
 
