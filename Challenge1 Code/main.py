@@ -6,24 +6,22 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 11, 2020
 
-<<<<<<< HEAD
 import RPi.GPIO as gpio 					# GPIO Library
 import time									# Time Library
 import Constants 							# Constants Python File
 import UltrasonicSensor as us				# UltrasonicSensor.py
 import MotorControls as mc					# MotorControls.py
 from pynput.keyboard import Key, Listener	# Keyboard Library
-=======
-import RPi.GPIO as gpio 		# GPIO Library
-import time						# Time Library
-import Constants 				# Constants Python File
-import UltrasonicSensor as us	# UltrasonicSensor.py
-import MotorControls as mc		# MotorControls.py
-import setup
->>>>>>> master
 
 # MARK: Functions
 
+# Description: on_press function needed to revert to manual controls
+def on_press(key):
+	if key == Key.m:
+		print("Entered Manual Operation Mode")
+
+def on_release(key):
+	print('{0} released'.format(key))
 
 # Description: Main Method for executing main code
 # Main Code
@@ -34,11 +32,10 @@ if __name__ == "__main__":
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
 
-<<<<<<< HEAD
+	# setting up Keyboard
+	setup.setupKeyboard(on_press, on_release)
+
 	while intervalsUntilCompletion < 40:
-=======
-	# MARK: Setup and Receive Data -----------------
->>>>>>> master
 
 	# setting up pins
 	setup.setupPins()
@@ -56,21 +53,12 @@ if __name__ == "__main__":
 		if numOfSameDistanceReadings > 2:
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
-<<<<<<< HEAD
 			for _ in range(0, 10):
 				mc.reverse(80)
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 20):
 				mc.rotateRight(60)
-=======
-			for _ in range(0, 50):
-				Motors.reverse(78)
-				time.sleep(0.030)
-			print("Rotating right")
-			for x in range(0, 50):
-				Motors.rotateRight(100)
->>>>>>> master
 				time.sleep(0.030)
 			if (int(abs(distance - previousDistanceReading)) > 2)
 				numOfSameDistanceReadings = 0
@@ -83,19 +71,12 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-<<<<<<< HEAD
 			mc.forwards(30)
 			print("Moving Forward")
 		else:
 			mc.reverse(30)
 			time.sleep(0.060)
 			mc.rotateRight(86)
-=======
-			Motors.forwards(50)
-			print("Moving Forward")
-		else:
-			Motors.rotateRight(80)
->>>>>>> master
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
@@ -115,4 +96,3 @@ if __name__ == "__main__":
 
 	gpio.cleanup()
 	print("Exited Program. Timer up.")
-
