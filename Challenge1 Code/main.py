@@ -23,7 +23,6 @@ if __name__ == "__main__":
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
-	motorRotating = False			# tracts if motor is rotating
 
 	# setting up pins
 	setup.setupPins()
@@ -66,19 +65,15 @@ if __name__ == "__main__":
 		print(distance)
 
 		# Read the distance and check to see
-		if distance > 30 and not(motorRotating):
+		if distance > 30:
 			Motors.forwards(50)
 			print("Moving Forward")
 		else:
-			motorRotating = True
 			Motors.reverse(30)
 			time.sleep(0.090)
 			Motors.rotateRight(87)
 			print("Rotating Right")
 			status = True
-
-			if distance > 70:
-				motorRotating = False
 
 		# MARK: Cleanup -----------------------------------
 		# Check to see if the previous distance is relatively the same as the current
