@@ -31,6 +31,9 @@ if __name__ == "__main__":
 	# instantiate motor class
 	Motors = mc.Motors([Constants.IN1, Constants.IN2, Constants.IN3, Constants.IN4])
 
+	status = False
+	sides = []
+
 	while intervalsUntilCompletion < 40:
 
 		# setting up pins
@@ -56,7 +59,6 @@ if __name__ == "__main__":
 			numOfSameDistanceReadings = 0
 
 
-
 		# MARK: Main Loop -------------------------------
 
 		# Get distance reading from Ultrasonic Sensor (takes about a second)
@@ -73,6 +75,7 @@ if __name__ == "__main__":
 			time.sleep(0.090)
 			Motors.rotateRight(87)
 			print("Rotating Right")
+			status = True
 
 			if distance > 70:
 				motorRotating = False
