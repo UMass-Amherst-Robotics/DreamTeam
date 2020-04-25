@@ -41,6 +41,7 @@ if __name__ == "__main__":
 	intervalsUntilCompletion = 0	# Number of readings until the program is terminated
 	previousDistanceReading = 0		# Records the previous distance reading to be compared with the current
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
+	numTurns = 0					# Records the number of turns that the robot has made thusfar
 
 	while intervalsUntilCompletion < 20:
 
@@ -58,12 +59,12 @@ if __name__ == "__main__":
 		if numOfSameDistanceReadings > 2:
 			# If the robot is stuck,
 			print("Robot is stuck, moving backwards")
-			for _ in range(0, 50):
+			for _ in range(0, 20):
 				mc.reverse(78)
 				time.sleep(0.030)
 			print("Rotating right")
 			for x in range(0, 50):
-				mc.rotateRight(100)
+				mc.rotateRight(70)
 				time.sleep(0.030)
 			numOfSameDistanceReadings = 0
 
@@ -75,12 +76,12 @@ if __name__ == "__main__":
 
 		# Read the distance and check to see
 		if distance > 40:
-			mc.forwards(30)
+			mc.forwards(20)
 			print("Moving Forward")
 		else:
 			mc.reverse(30)
-			time.sleep(1)
-			mc.rotateRight(75)
+			time.sleep(0.3)
+			mc.rotateRight(70)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
