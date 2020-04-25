@@ -78,7 +78,7 @@ if __name__ == "__main__":
 			mc.forwards(50)
 			print("Moving Forward")
 		else:
-			mc.rotateRight(80)
+			mc.rotateRight(75)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
