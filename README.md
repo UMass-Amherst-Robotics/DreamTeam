@@ -9,6 +9,8 @@ One of the first and most time-consuming tasks was controlling the speed (and ac
 
 To tackle this we employed Pulse Width Modulation. Pulse Width Modulation is a useful tactic for delivering a steady frequency of the voltage to the motors in such a way that we can control the current intake directly through code while maintaining a steady 9V into the Motor Driver. This is both useful and practical, and it results in no hardware changes which is perfect since we do not have access to the hardware of the robot.
 
+https://www.youtube.com/watch?v=7p2fTAiEle8&feature=youtu.be
+
 ## Rotation and Movement
 
 What PWM is really useful for, however, is rotating. Rotating is one of the most difficult thing we have found to do with the robot. While rotating 90 degrees sounds simple, in actuality it is very difficult. In addition, only having one ultrasonic sensor to detect our movement makes it really difficult to verify that any of the turns we make are accurate to the degree we wanted to turn. Unfortunately this is a problem that is near impossible to solve with one sensor, so our next idea was how can me make our rotating as accurate as possible. PWM gives us the ability to do this. While complete accuracy cannot be guaranteed, with control of the speed we can get the car to roughly turn where it needs to.
