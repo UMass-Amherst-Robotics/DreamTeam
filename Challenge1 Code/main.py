@@ -43,7 +43,7 @@ if __name__ == "__main__":
 	numOfSameDistanceReadings = 0	# Records the number of distance readings that were the same
 	numTurns = 0					# Records the number of turns that the robot has made thusfar
 
-	while intervalsUntilCompletion < 20:
+	while intervalsUntilCompletion < 40:
 
 		# MARK: Setup and Receive Data -----------------
 
