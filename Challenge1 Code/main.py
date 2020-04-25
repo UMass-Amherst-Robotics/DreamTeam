@@ -6,11 +6,12 @@
 # Created by Samuel DuBois and Andrew Tran
 # Created on April 11, 2020
 
-import RPi.GPIO as gpio 		# GPIO Library
-import time						# Time Library
-import Constants 				# Constants Python File
-import UltrasonicSensor as us	# UltrasonicSensor.py
-import MotorControls as mc		# MotorControls.py
+import RPi.GPIO as gpio 					# GPIO Library
+import time									# Time Library
+import Constants 							# Constants Python File
+import UltrasonicSensor as us				# UltrasonicSensor.py
+import MotorControls as mc					# MotorControls.py
+from pynput.keyboard import Key, Listener	# Keyboard Library
 
 # MARK: Functions
 
@@ -66,7 +67,8 @@ if __name__ == "__main__":
 			for x in range(0, 20):
 				mc.rotateRight(60)
 				time.sleep(0.030)
-			numOfSameDistanceReadings = 0
+			if (int(abs(distance - previousDistanceReading)) > 2)
+				numOfSameDistanceReadings = 0
 
 		# MARK: Main Loop -------------------------------
 
