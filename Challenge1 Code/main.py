@@ -78,6 +78,8 @@ if __name__ == "__main__":
 			mc.forwards(30)
 			print("Moving Forward")
 		else:
+			mc.reverse(30)
+			time.sleep(1)
 			mc.rotateRight(75)
 			print("Rotating Right")
 
