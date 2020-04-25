@@ -69,7 +69,7 @@ if __name__ == "__main__":
 		else:
 			Motors.reverse(30)
 			time.sleep(0.060)
-			Motors.rotateRight(88)
+			Motors.rotateRight(89)
 			print("Rotating Right")
 
 		# MARK: Cleanup -----------------------------------
