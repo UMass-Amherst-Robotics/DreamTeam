@@ -56,6 +56,15 @@ if __name__ == "__main__":
 					Motors.rotateRight(100)
 					time.sleep(0.010)
 			numOfSameDistanceReadings = 0
+			status = True
+
+		if status == True:
+			length = us.getDistanceFromSensor()
+			sides.append(length)
+			status = False
+
+		if len(sides) == 4:
+			break
 
 
 		# MARK: Main Loop -------------------------------
@@ -73,7 +82,7 @@ if __name__ == "__main__":
 			time.sleep(0.090)
 			Motors.rotateRight(87)
 			print("Rotating Right")
-			status = True
+
 
 		# MARK: Cleanup -----------------------------------
 		# Check to see if the previous distance is relatively the same as the current
