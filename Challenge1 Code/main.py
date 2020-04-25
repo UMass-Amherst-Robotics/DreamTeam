@@ -34,7 +34,7 @@ if __name__ == "__main__":
 	# MARK: Main pathing code ------------------------
 	# TODO: Find perfect values for dc and time.sleep to rotate 90 degrees
 	# variables to keep track if vertex has been found
-	v1, v2, v3, v4 = False
+	v1, v2, v3, v4 = False, False, False, False
 	# list to keep track of edge weights
 	edges = []
 	
@@ -46,8 +46,8 @@ if __name__ == "__main__":
 			Motors.forwards(50)
 
 		else:
-			Motors.rotate(50)
-			time.sleep(0.01)
+			Motors.rotateRight(88)
+			time.sleep(0.06)
 			Motors.stop()
 			v1 = True
 
@@ -61,8 +61,8 @@ if __name__ == "__main__":
 			Motors.forwards(50)
 
 		else:
-			Motors.rotate(50)
-			time.sleep(0.01)
+			Motors.rotateRight(88)
+			time.sleep(0.060)
 			Motors.stop()
 			v2 = True
 
@@ -75,8 +75,8 @@ if __name__ == "__main__":
 			Motors.forwards(50)
 
 		else:
-			Motors.rotate(50)
-			time.sleep(0.01)
+			Motors.rotateRight(88)
+			time.sleep(0.060)
 			Motors.stop()
 			v3 = True
 
@@ -89,8 +89,8 @@ if __name__ == "__main__":
 			Motors.forwards(50)
 
 		else:
-			Motors.rotate(50)
-			time.sleep(0.01)
+			Motors.rotateRight(88)
+			time.sleep(0.060)
 			Motors.stop()
 			v4 = True
 
